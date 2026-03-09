@@ -2,6 +2,7 @@ import Link from 'next/link';
 import CTASection from './components/CTASection';
 import SectionHeading from './components/SectionHeading';
 import ServiceCard from './components/ServiceCard';
+import { ArrowRightIcon, CheckIcon } from './components/Icons';
 import { services } from './data/services';
 
 const trustPillars = [
@@ -38,6 +39,25 @@ const advantages = [
   'A brand built on responsiveness, trust and practical delivery',
 ];
 
+const serviceHighlights = [
+  'Travel and logistics support',
+  'Construction and project coordination',
+  'Property and real-estate guidance',
+  'Agricultural partnerships and support',
+  'Automobile sourcing and advisory',
+];
+
+const featuredNeeds = [
+  {
+    title: 'Business enquiries',
+    description: 'Speak with us if you need a responsive partner that can coordinate across different service lines with clarity and professionalism.',
+  },
+  {
+    title: 'Projects and partnerships',
+    description: 'We support organisations and individuals who need practical delivery, trusted communication and dependable follow-through.',
+  },
+];
+
 export default function Home() {
   return (
     <div className="space-y-24 pb-8">
@@ -66,6 +86,16 @@ export default function Home() {
               >
                 Request a consultation
               </Link>
+            </div>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {serviceHighlights.slice(0, 4).map((item) => (
+                <div key={item} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-500/15 text-amber-300">
+                    <CheckIcon className="h-4 w-4" />
+                  </span>
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -109,10 +139,32 @@ export default function Home() {
           </div>
           {advantages.map((item) => (
             <div key={item} className="card-white p-6">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-100 text-lg font-semibold text-amber-700">✓</div>
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
+                <CheckIcon className="h-5 w-5" />
+              </div>
               <p className="mt-4 text-base font-medium leading-7 text-slate-800">{item}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="section-shell">
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+          <div>
+            <SectionHeading
+              eyebrow="What we support"
+              title="Solutions tailored to the kind of business needs that require trust and follow-through."
+              description="We serve individuals and organisations looking for a practical partner across key sectors, from first enquiry through delivery and support."
+            />
+          </div>
+          <div className="grid gap-4">
+            {featuredNeeds.map((item) => (
+              <div key={item.title} className="rounded-[1.5rem] border border-slate-200 bg-white px-6 py-5 shadow-soft">
+                <h3 className="text-lg font-semibold text-slate-950">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -123,8 +175,9 @@ export default function Home() {
             title="Sector-specific solutions designed for practical results."
             description="Whether you need travel support, project coordination, property guidance, agricultural partnership support or vehicle-related services, we provide a clear and professional route forward."
           />
-          <Link href="/services" className="text-sm font-semibold text-slate-900 transition hover:text-amber-600">
-            View all services →
+          <Link href="/services" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition hover:text-amber-600">
+            View all services
+            <ArrowRightIcon className="h-4 w-4" />
           </Link>
         </div>
 
@@ -146,8 +199,8 @@ export default function Home() {
             {process.map((step, index) => (
               <div key={step} className="rounded-[1.5rem] bg-slate-50 px-5 py-5">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-semibold text-white">
-                    0{index + 1}
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-950 text-sm font-semibold text-white">
+                    {index + 1}
                   </div>
                   <p className="pt-1 text-base leading-7 text-slate-700">{step}</p>
                 </div>
@@ -156,30 +209,33 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="card-dark gradient-ring px-8 py-10 lg:px-10">
+        <div className="card-dark gradient-ring px-8 py-9">
           <div className="hero-grid-pointer absolute inset-0 opacity-30" aria-hidden="true" />
           <div className="relative">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">Business value</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white">Support that feels organised, responsive and dependable.</h2>
-            <p className="mt-4 text-base leading-8 text-slate-300">
-              We understand that clients value more than service availability. They want confidence, follow-through and a partner that can help reduce friction across the delivery process.
-            </p>
-            <div className="mt-8 space-y-4">
-              {['Professional enquiry handling', 'Dependable multi-sector support', 'Clear next steps and follow-through'].map((item) => (
-                <div key={item} className="glass-panel flex items-center gap-3 px-4 py-4 text-sm text-slate-200">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-400/20 text-amber-300">✓</span>
-                  <span>{item}</span>
-                </div>
-              ))}
+            <SectionHeading
+              eyebrow="Client enquiries"
+              title="Ready to discuss your next request?"
+              description="Tell us what you need and we will help you identify the right service path and practical next steps."
+              light
+            />
+            <div className="mt-8 space-y-4 text-sm text-slate-300">
+              <p>We welcome direct enquiries from businesses, organisations and individuals seeking reliable support across our service areas.</p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 font-semibold text-slate-950 transition hover:bg-amber-300"
+              >
+                Contact our team
+                <ArrowRightIcon className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       <CTASection
-        title="Looking for a trusted business partner for your next need or opportunity?"
-        description="Tell us what you need and we will guide you toward the right service path with a professional and responsive approach."
-        primaryLabel="Speak with our team"
+        eyebrow="Let’s work together"
+        title="Need a responsive business partner across key service sectors?"
+        description="Reach out to discuss your needs and we will help you identify the most suitable path forward with clarity and professionalism."
       />
     </div>
   );

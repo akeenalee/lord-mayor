@@ -37,10 +37,10 @@ body {
   }
 
   .glass-panel {
-  @apply rounded-[1.5rem] border backdrop-blur-md;
-  border-color: rgb(255 255 255 / 0.15);
-  background-color: rgb(255 255 255 / 0.08);
-}
+    @apply rounded-[1.5rem] border backdrop-blur-md;
+    border-color: rgb(255 255 255 / 0.15);
+    background-color: rgb(255 255 255 / 0.08);
+  }
 
   .section-shell {
     @apply relative overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white/70 p-8 shadow-soft backdrop-blur-sm lg:p-12;

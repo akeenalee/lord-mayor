@@ -39,10 +39,30 @@ export const metadata = {
   },
 };
 
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Lord Mayor of Africa Nig Ltd',
+  url: 'https://www.lordmayorofafrica.com',
+  logo: 'https://www.lordmayorofafrica.com/logo.png',
+  email: 'olasunkanmi.abass78@gmail.com',
+  telephone: '+2348034297634',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'No 3 Kolda Street, Wuse 2',
+    addressLocality: 'Abuja',
+    addressCountry: 'NG',
+  },
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="min-h-screen bg-white text-slate-900 antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <Header />
         <main className="mx-auto min-h-[60vh] w-full max-w-7xl px-6 py-8 lg:px-8 lg:py-10">
           {children}
