@@ -3,9 +3,40 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 export const metadata = {
-  title: 'Lord Mayor of Africa Nig Ltd',
+  metadataBase: new URL('https://www.lordmayorofafrica.com'),
+  title: {
+    default: 'Lord Mayor of Africa Nig Ltd',
+    template: '%s | Lord Mayor of Africa Nig Ltd',
+  },
   description:
     'Professional multi-sector solutions across travel, construction, real estate, agriculture and automobile services.',
+  applicationName: 'Lord Mayor of Africa Nig Ltd',
+  keywords: [
+    'Lord Mayor of Africa',
+    'travel services',
+    'construction services',
+    'real estate',
+    'agriculture',
+    'automobile services',
+    'Abuja business',
+  ],
+  openGraph: {
+    title: 'Lord Mayor of Africa Nig Ltd',
+    description:
+      'Professional multi-sector solutions across travel, construction, real estate, agriculture and automobile services.',
+    url: 'https://www.lordmayorofafrica.com',
+    siteName: 'Lord Mayor of Africa Nig Ltd',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Lord Mayor of Africa Nig Ltd',
+    description:
+      'Professional multi-sector solutions across travel, construction, real estate, agriculture and automobile services.',
+  },
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -13,7 +44,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="min-h-screen bg-white text-slate-900 antialiased">
         <Header />
-        <main className="mx-auto min-h-[60vh] w-full max-w-7xl px-6 py-8 lg:px-8">
+        <main className="mx-auto min-h-[60vh] w-full max-w-7xl px-6 py-8 lg:px-8 lg:py-10">
           {children}
         </main>
         <Footer />

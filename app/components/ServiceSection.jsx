@@ -1,21 +1,23 @@
 export default function ServiceSection({ intro, highlights }) {
   return (
-    <section className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-      <div className="rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-sm">
-        <h2 className="text-2xl font-semibold text-slate-900">What we offer</h2>
-        <p className="mt-4 text-base leading-8 text-slate-600">{intro}</p>
-      </div>
-
-      <div className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-8 shadow-sm">
-        <h2 className="text-2xl font-semibold text-slate-900">Service highlights</h2>
-        <ul className="mt-6 space-y-4">
-          {highlights.map((item) => (
-            <li key={item} className="flex gap-3 text-slate-700">
-              <span className="mt-1 h-2.5 w-2.5 rounded-full bg-amber-500" />
-              <span>{item}</span>
-            </li>
+    <section className="section-shell">
+      <div className="grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-start">
+        <div>
+          <span className="chip">What we offer</span>
+          <p className="mt-5 text-lg leading-8 text-slate-600">{intro}</p>
+        </div>
+        <div className="grid gap-4">
+          {highlights.map((highlight, index) => (
+            <div key={highlight} className="rounded-[1.4rem] border border-slate-200 bg-slate-50/80 px-5 py-5">
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-semibold text-white">
+                  0{index + 1}
+                </div>
+                <p className="pt-1 text-sm leading-7 text-slate-700">{highlight}</p>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );
