@@ -1,46 +1,63 @@
-import CTASection from '../components/CTASection';
-import SectionHeading from '../components/SectionHeading';
-import ServiceCard from '../components/ServiceCard';
-import { services } from '../data/services';
+import CTASection from "../components/CTASection";
+import SectionHeading from "../components/SectionHeading";
+import ServiceCard from "../components/ServiceCard";
+import { services } from "../data/services";
 
 export const metadata = {
-  title: 'Services',
-  description: 'Explore the services offered by Lord Mayor of Africa Nig Ltd.',
+  title: "Services | Lord Mayor Group",
+  description:
+    "Explore the service portfolio of Lord Mayor of Africa Nig Ltd across travel, construction, real estate, agriculture, and automobile sectors.",
 };
 
 export default function Services() {
   return (
-    <div className="space-y-16 pb-8">
-      <section className="card-dark animate-fade-in px-6 py-14 sm:px-10 lg:px-12">
-        <div className="hero-grid-pointer absolute inset-0 opacity-40" aria-hidden="true" />
-        <div className="relative max-w-4xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-400">Our services</p>
-          <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Professional support across key business sectors.
-          </h1>
-          <p className="mt-5 text-lg leading-8 text-slate-300">
-            We provide practical, client-focused support across multiple service areas, helping clients move from need to execution with clarity.
-          </p>
+    <>
+      {/* Hero */}
+      <section className="section pt-24 md:pt-28">
+        <div className="rounded-[2rem] bg-slate-950 px-6 py-14 shadow-[0_30px_80px_-30px_rgba(15,23,42,0.75)] md:px-10 lg:px-12">
+          <div className="max-w-4xl">
+            <span className="eyebrow">Our Services</span>
+
+            <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Professional support across key business sectors
+            </h1>
+
+            <p className="mt-6 text-lg leading-8 text-slate-300">
+              We provide practical, client-focused support across multiple
+              service areas, helping clients move from need to execution with
+              clarity, reliability, and professional coordination.
+            </p>
+          </div>
         </div>
       </section>
 
-      <SectionHeading
-        eyebrow="Service portfolio"
-        title="Explore our core sectors."
-        description="Each service line is designed to deliver dependable support, clear communication and practical business value."
-      />
-
-      <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {services.map((service) => (
-          <ServiceCard key={service.slug} service={service} />
-        ))}
+      {/* Service intro */}
+      <section className="section">
+        <SectionHeading
+          eyebrow="Service Portfolio"
+          title="Explore our core sectors"
+          subtitle="Each service line is structured to deliver dependable support, transparent communication, and practical business value."
+        />
       </section>
 
+      {/* Services grid */}
+      <section className="section pt-0">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {services.map((service) => (
+            <ServiceCard key={service.slug} service={service} />
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
       <CTASection
         title="Need help identifying the right service for your requirement?"
-        description="Contact our team and we will guide you toward the best-fit service path based on your needs."
-        primaryLabel="Get in touch"
+        description="Contact our team and we will guide you toward the most appropriate service option based on your needs."
+        primaryText="Contact Us"
+        primaryHref="/contact"
+        secondaryText="Learn About Us"
+        secondaryHref="/about"
       />
-    </div>
+    </>
   );
 }

@@ -12,14 +12,13 @@ html {
 
 body {
   background:
-    radial-gradient(circle at top left, rgba(245, 158, 11, 0.14), transparent 26%),
-    radial-gradient(circle at top right, rgba(15, 23, 42, 0.08), transparent 22%),
-    linear-gradient(to bottom, #fffdf7 0%, #f8fafc 38%, #ffffff 100%);
+    radial-gradient(circle at top, rgba(245, 158, 11, 0.06), transparent 28%),
+    linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 40%, #ffffff 100%);
 }
 
 @layer base {
   body {
-    @apply text-slate-900 antialiased;
+    @apply text-slate-800 antialiased;
   }
 
   a {
